@@ -1,0 +1,127 @@
+:root {
+  --bg: #101827;
+  --panel: #1f2937;
+  --panel-2: #111827;
+  --screen: #dbeafe;
+  --operator: #f59e0b;
+  --utility: #374151;
+  --button: #e5e7eb;
+  --button-text: #111827;
+  --equals: #22c55e;
+  --shadow: rgba(15, 23, 42, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #020817, var(--bg));
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+}
+
+.calculator {
+  width: min(94vw, 360px);
+  background: var(--panel);
+  border-radius: 22px;
+  box-shadow: 0 18px 50px var(--shadow);
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.display-shell {
+  background: var(--panel-2);
+  border-radius: 16px;
+  padding: 18px 16px 14px;
+  margin-bottom: 18px;
+  min-height: 96px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.expression,
+.result {
+  width: 100%;
+  text-align: right;
+  overflow-wrap: anywhere;
+  word-break: break-all;
+}
+
+.expression {
+  min-height: 26px;
+  font-size: 1rem;
+  color: rgba(219, 234, 254, 0.8);
+}
+
+.result {
+  font-size: clamp(2rem, 5vw, 2.6rem);
+  font-weight: 700;
+  color: var(--screen);
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.btn {
+  border: 0;
+  border-radius: 14px;
+  height: 62px;
+  font-size: 1.35rem;
+  font-weight: 600;
+  background: var(--button);
+  color: var(--button-text);
+  cursor: pointer;
+  transition: transform 0.12s ease, filter 0.12s ease, opacity 0.12s ease;
+}
+
+.btn:hover {
+  filter: brightness(1.05);
+}
+
+.btn:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+.btn-operator {
+  background: var(--operator);
+  color: white;
+}
+
+.btn-utility {
+  background: var(--utility);
+  color: white;
+}
+
+.btn-equals {
+  background: var(--equals);
+  color: white;
+}
+
+.btn-zero {
+  grid-column: span 2;
+}
+
+@media (max-width: 420px) {
+  .calculator {
+    padding: 14px;
+  }
+
+  .buttons {
+    gap: 10px;
+  }
+
+  .btn {
+    height: 56px;
+  }
+}
